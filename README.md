@@ -14,7 +14,8 @@ Esta API oferece funcionalidades de CRUD (Create, Read, Update, Delete) para ger
 ### Passos:
 1. Clone o repositório:
     bash
-    git clone https://github.com/seu_usuario/SmartMotoZone.API.git
+    git clone (https://github.com/KaioCumpian/SmartMotoZone.API.git
+)
     
 2. Abra o projeto no Visual Studio.
 3. Instale os pacotes NuGet necessários para Entity Framework Core e Oracle:
