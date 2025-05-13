@@ -1,100 +1,167 @@
-## Descrição do Projeto
 
-O **SmartMotoZone.API** é uma API RESTful desenvolvida para o mapeamento inteligente de motos em pátios de filiais. A solução foi criada para facilitar a gestão de frotas, localizando as motos de forma precisa e eficiente em tempo real. Utilizando a tecnologia de zonas virtuais (beacons), o sistema oferece visibilidade e controle sobre a disposição das motos nos pátios, permitindo uma gestão mais ágil e escalável.
 
-Esta API oferece funcionalidades de CRUD (Create, Read, Update, Delete) para gerenciamento de motos, com integração ao banco de dados Oracle via Entity Framework Core. A documentação da API é disponibilizada através do Swagger, proporcionando uma interface gráfica para interação com os endpoints.
+---
 
-## Como Rodar o Projeto
+````markdown
+# 🏍️ SmartMotoZone.API
 
-### Requisitos:
-- **.NET 8.0** ou superior
-- **Oracle Database** (configuração do banco de dados no `appsettings.Development.json`)
-- **Visual Studio 2022+**
+API RESTful para mapeamento inteligente de motos em pátios de filiais da Mottu.  
+Utiliza o conceito de **zonas virtuais** (sem necessidade de hardware físico) para localizar motos de forma eficiente e organizada.
 
-### Passos:
+---
+
+## 🚀 Funcionalidades
+
+- CRUD completo de motos (placa, modelo, status, zona atual)
+- Integração com banco de dados Oracle via EF Core
+- Documentação interativa com Swagger UI
+- Totalmente compatível com `.NET 8.0`
+
+---
+
+## ⚙️ Tecnologias Utilizadas
+
+- ASP.NET Core 8.0
+- Entity Framework Core + Migrations
+- Oracle Database
+- Swashbuckle (Swagger)
+- Visual Studio 2022+
+
+---
+
+## 🧩 Como Rodar o Projeto
+
+### ✅ Requisitos
+
+- .NET 8.0 SDK
+- Oracle Database local ou em nuvem
+- Visual Studio 2022 ou superior
+
+### 🛠️ Passos para execução
+
 1. Clone o repositório:
-    bash
-    git clone https://github.com/SmartMotoZone-API/SmartMotoZone.API.git
 
-    
-2. Abra o projeto no Visual Studio.
-3. Instale os pacotes NuGet necessários para Entity Framework Core e Oracle:
-    - **Oracle.EntityFrameworkCore**
-    - **Microsoft.EntityFrameworkCore.Tools**
-    - **Swashbuckle.AspNetCore** (para Swagger)
-4. Configure a string de conexão com o banco de dados Oracle no arquivo `appsettings.Development.json`:
-    json
-    "ConnectionStrings": {
-      "DefaultConnection": "User Id=seu_usuario;Password=sua_senha;Data Source=seu_servidor;"
-    }
-    
-5. Restaure os pacotes NuGet:
-    bash
-    dotnet restore
-    
-6. Execute as migrations para criar as tabelas no banco de dados:
-    bash
-    dotnet ef database update
-    
-7. Execute o projeto:
-    bash
-    dotnet run
-    
+   ```bash
+   git clone https://github.com/SmartMotoZone-API/SmartMotoZone.API.git
+````
 
-Agora, a API estará disponível no endereço: `https://localhost:5001` (por padrão).
+2. Abra o projeto no Visual Studio 2022.
 
----
+3. Instale os seguintes pacotes NuGet:
 
-## Rotas Disponíveis
+   * `Oracle.EntityFrameworkCore`
+   * `Microsoft.EntityFrameworkCore.Tools`
+   * `Swashbuckle.AspNetCore`
 
-### Moto
+4. Configure a string de conexão no arquivo `appsettings.Development.json`:
 
-- **GET /api/motos**
-  - Retorna todas as motos cadastradas.
-  - **Resposta:** `200 OK` com a lista de motos.
-  
-- **GET /api/motos/{id}**
-  - Retorna os detalhes de uma moto específica.
-  - **Parâmetros de URL:** `id` (ID da moto)
-  - **Resposta:** `200 OK` com os detalhes da moto ou `404 Not Found` se não encontrada.
+   ```json
+   "ConnectionStrings": {
+     "DefaultConnection": "User Id=seu_usuario;Password=sua_senha;Data Source=seu_servidor;"
+   }
+   ```
 
-- **POST /api/motos**
-  - Cria uma nova moto.
-  - **Corpo da requisição:** Dados da moto (exemplo: `placa`, `modelo`, `zonaAtual`).
-  - **Resposta:** `201 Created` com os dados da moto criada.
+5. Restaure os pacotes:
 
-- **PUT /api/motos/{id}**
-  - Atualiza os dados de uma moto existente.
-  - **Parâmetros de URL:** `id` (ID da moto)
-  - **Corpo da requisição:** Dados atualizados da moto.
-  - **Resposta:** `200 OK` com os dados atualizados ou `404 Not Found` se não encontrada.
+   ```bash
+   dotnet restore
+   ```
 
-- **DELETE /api/motos/{id}**
-  - Deleta uma moto.
-  - **Parâmetros de URL:** `id` (ID da moto)
-  - **Resposta:** `204 No Content` se deletado com sucesso ou `404 Not Found` se não encontrada.
+6. Execute as migrations:
+
+   ```bash
+   dotnet ef database update
+   ```
+
+7. Rode o projeto:
+
+   ```bash
+   dotnet run
+   ```
+
+A API estará disponível em: `https://localhost:5001`
+
+A documentação Swagger estará em: `https://localhost:5001/swagger`
 
 ---
 
-## Tecnologias Usadas
+## 📚 Modelo da Entidade: Moto
 
-- **ASP.NET Core 8.0** - Framework para API RESTful
-- **Entity Framework Core** - ORM para interação com o banco de dados
-- **Oracle Database** - Banco de dados para armazenamento de informações
-- **Swagger (Swashbuckle)** - Documentação da API
-- **Visual Studio 2022+** - IDE para desenvolvimento
-
----
-
-## Observações Importantes
-
-- Certifique-se de configurar corretamente sua string de conexão no arquivo `appsettings.Development.json` antes de executar o projeto.
-- O Swagger pode ser acessado no endereço `/swagger` após o projeto ser executado. Ele oferece uma interface gráfica para testar os endpoints da API.
+```json
+{
+  "id": 1,
+  "placa": "ABC1234",
+  "modelo": "Honda CG 160",
+  "status": "Disponível",
+  "zonaAtual": "B2",
+  "ultimaAtualizacao": "2025-05-13T14:30:00"
+}
+```
 
 ---
 
-Feito com 💙 por [Kaio Cumpian, Gabriel]
+## 📡 Rotas Disponíveis
 
-`
+### 🔍 GET
+
+* `GET /api/motos`
+  → Retorna todas as motos
+
+* `GET /api/motos/{id}`
+  → Retorna detalhes de uma moto específica
+
+* `GET /api/motos/porzona?zona=B2`
+  → Lista motos que estão na zona B2
+
+### ➕ POST
+
+* `POST /api/motos`
+  → Cria uma nova moto
+  **Body JSON:** Ver exemplo acima
+
+### ✏️ PUT
+
+* `PUT /api/motos/{id}`
+  → Atualiza os dados de uma moto
+
+### ❌ DELETE
+
+* `DELETE /api/motos/{id}`
+  → Remove uma moto do sistema
 
 ---
+
+## 🛡️ Respostas HTTP
+
+| Código            | Descrição                   |
+| ----------------- | --------------------------- |
+| `200 OK`          | Requisição bem-sucedida     |
+| `201 Created`     | Recurso criado com sucesso  |
+| `204 No Content`  | Recurso removido            |
+| `400 Bad Request` | Dados inválidos ou ausentes |
+| `404 Not Found`   | Moto não encontrada         |
+
+---
+
+## 📘 Observações
+
+* O Swagger fornece uma interface gráfica para testes. Basta acessar `/swagger` com o projeto rodando.
+* Toda a persistência é feita via Oracle + Entity Framework Core com migrations.
+
+---
+
+## 👨‍💻 Equipe
+
+* Kaio Cumpian
+* Gabriel (inserir sobrenome completo)
+
+---
+
+> Feito com 💙 para a disciplina de *Advanced Business Development with .NET*
+
+```
+
+---
+
+Se quiser, posso criar também um modelo de `DbContext`, `Moto.cs` e `MotosController` com as rotas exatas descritas. Só avisar!
+```
