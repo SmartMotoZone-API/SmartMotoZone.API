@@ -14,7 +14,7 @@ Esta API oferece funcionalidades de CRUD (Create, Read, Update, Delete) para ger
 ### Passos:
 1. Clone o repositório:
     bash
-    git clone (https://github.com/KaioCumpian/SmartMotoZone.API.git
+    git clone https://github.com/SmartMotoZone-API/SmartMotoZone.API.git
 )
     
 2. Abra o projeto no Visual Studio.
