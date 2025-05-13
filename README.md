@@ -163,5 +163,4 @@ A documentação Swagger estará em: `https://localhost:5001/swagger`
 
 ---
 
-Se quiser, posso criar também um modelo de `DbContext`, `Moto.cs` e `MotosController` com as rotas exatas descritas. Só avisar!
 ```
