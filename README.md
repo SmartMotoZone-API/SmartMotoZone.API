@@ -1,8 +1,3 @@
-
-
----
-
-````markdown
 # 🏍️ SmartMotoZone.API
 
 API RESTful para mapeamento inteligente de motos em pátios de filiais da Mottu.  
@@ -43,7 +38,7 @@ Utiliza o conceito de **zonas virtuais** (sem necessidade de hardware físico) p
 
    ```bash
    git clone https://github.com/SmartMotoZone-API/SmartMotoZone.API.git
-````
+   ```
 
 2. Abra o projeto no Visual Studio 2022.
 
@@ -57,9 +52,17 @@ Utiliza o conceito de **zonas virtuais** (sem necessidade de hardware físico) p
 
    ```json
    "ConnectionStrings": {
-     "DefaultConnection": "User Id=seu_usuario;Password=sua_senha;Data Source=seu_servidor;"
+     "DefaultConnection": "User Id=SEU_USUARIO;Password=SUA_SENHA;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=SEU_HOST)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SEU_SERVICO)));"
    }
    ```
+
+   > 📝 Substitua:
+   >
+   > - `SEU_USUARIO` pelo usuário do Oracle  
+   > - `SUA_SENHA` pela senha correspondente  
+   > - `SEU_HOST` pelo endereço/IP do servidor Oracle  
+   > - `1521` pela porta (padrão do Oracle, se não mudou)  
+   > - `SEU_SERVICO` pelo nome do serviço (ou SID) da instância Oracle  
 
 5. Restaure os pacotes:
 
@@ -116,7 +119,7 @@ A documentação Swagger estará em: `https://localhost:5001/swagger`
 ### ➕ POST
 
 * `POST /api/motos`
-  → Cria uma nova moto
+  → Cria uma nova moto  
   **Body JSON:** Ver exemplo acima
 
 ### ✏️ PUT
@@ -158,9 +161,3 @@ A documentação Swagger estará em: `https://localhost:5001/swagger`
 ---
 
 > Feito com 💙 para a disciplina de *Advanced Business Development with .NET*
-
-```
-
----
-
-```
