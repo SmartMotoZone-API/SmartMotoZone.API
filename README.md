@@ -1,4 +1,3 @@
-````markdown
 # 🏍️ SmartMotoZone.API
 
 API RESTful para mapeamento inteligente de motos em pátios de filiais da Mottu.  
@@ -39,7 +38,7 @@ Utiliza o conceito de **zonas virtuais** (sem necessidade de hardware físico) p
 
    ```bash
    git clone https://github.com/SmartMotoZone-API/SmartMotoZone.API.git
-````
+   ```
 
 2. Abra o projeto no Visual Studio 2022.
 
@@ -83,7 +82,7 @@ Utiliza o conceito de **zonas virtuais** (sem necessidade de hardware físico) p
    dotnet run
    ```
 
-A API estará disponível em: `https://localhost:5001`
+A API estará disponível em: `https://localhost:5001`  
 A documentação Swagger estará em: `https://localhost:5001/swagger`
 
 ---
@@ -122,7 +121,7 @@ A documentação Swagger estará em: `https://localhost:5001/swagger`
 ### ➕ POST
 
 * `POST /api/motos`
-  → Cria uma nova moto
+  → Cria uma nova moto  
   **Body JSON:** Ver exemplo acima
 
 ### ✏️ PUT
@@ -151,19 +150,46 @@ A documentação Swagger estará em: `https://localhost:5001/swagger`
 
 ## 📘 Observações
 
-* O Swagger fornece uma interface gráfica para testes. Basta acessar `/swagger` com o projeto rodando.
-* Toda a persistência é feita via Oracle + Entity Framework Core com migrations.
+- O Swagger fornece uma interface gráfica para testes. Basta acessar `/swagger` com o projeto rodando.
+- Toda a persistência é feita via Oracle + Entity Framework Core com migrations.
+- O atributo `[ApiController]` presente no controller garante que erros de validação nos modelos sejam tratados automaticamente, retornando mensagens de erro em formato JSON com status `400 Bad Request`.
+
+### 🔎 Exemplo de erro 400 Bad Request
+
+Se for enviada uma requisição POST com dados inválidos (ex: campo `status` vazio ou com mais de 20 caracteres), a API retorna erro automático:
+
+**Requisição:**
+```json
+{
+  "placa": "XYZ1234",
+  "modelo": "Yamaha",
+  "status": "",
+  "zonaAtual": "A1"
+}
+```
+
+**Resposta:**
+```json
+{
+  "errors": {
+    "Status": [
+      "O status da moto é obrigatório."
+    ]
+  },
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "traceId": "00-...etc..."
+}
+```
 
 ---
 
 ## 👨‍💻 Equipe
 
-* Kaio Cumpian
+* Kaio Cumpian  
 * Gabriel
 
 ---
 
 > Feito com 💙 para a disciplina de *Advanced Business Development with .NET*
-
-```
-
