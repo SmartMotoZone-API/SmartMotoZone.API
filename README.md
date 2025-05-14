@@ -156,7 +156,7 @@ A documentação Swagger estará em: `https://localhost:5001/swagger`
 ## 👨‍💻 Equipe
 
 * Kaio Cumpian
-* Gabriel (inserir sobrenome completo)
+* Gabriel
 
 ---
 
