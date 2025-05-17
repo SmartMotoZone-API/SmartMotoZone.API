@@ -188,7 +188,8 @@ Se for enviada uma requisição POST com dados inválidos (ex: campo `status` va
 ## 👨‍💻 Equipe
 
 * Kaio Cumpian  
-* Gabriel
+* Gabriel Yuji Suzuki 
+* Lucas Felix Vassiliades
 
 ---
 
